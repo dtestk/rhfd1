@@ -1,0 +1,5 @@
+project: rhfd1
+registry: simplenodeservice
+stages:
+    - {deployment_strategy: direct, name: staging, test_strategy: performance}
+    - {deployment_strategy: blue_green_service, name: prod}
