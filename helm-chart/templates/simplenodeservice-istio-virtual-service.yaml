@@ -1,19 +1,22 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: rhfd1-prod-simplenodeservice
+    name: rhfd1-prod-simplenodeservice
 spec:
-  hosts:
-  - "simplenodeservice.rhfd1-prod.34.87.67.53.xip.io"
-  gateways:
-  - rhfd1-prod-gateway
-  http:
-    - route:
-      - destination:
-          host: simplenodeservice.rhfd1-prod.svc.cluster.local
-          subset: blue
-        weight: 0
-      - destination:
-          host: simplenodeservice.rhfd1-prod.svc.cluster.local
-          subset: green
-        weight: 100
+    hosts:
+        - simplenodeservice.rhfd1-prod.34.87.67.53.xip.io
+    gateways:
+        - rhfd1-prod-gateway
+    http:
+        -
+            route:
+                -
+                    destination:
+                        host: simplenodeservice.rhfd1-prod.svc.cluster.local
+                        subset: blue
+                    weight: 100
+                -
+                    destination:
+                        host: simplenodeservice.rhfd1-prod.svc.cluster.local
+                        subset: green
+                    weight: 0
